@@ -1,2 +1,2 @@
 # P5RBattleEditorWPF
-C# TBL editor for P5R
+C# WPF Table editor for P5R
