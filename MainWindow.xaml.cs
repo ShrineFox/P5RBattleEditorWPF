@@ -21,9 +21,5 @@ namespace P5RBattleEditorWPF
         {
             InitializeComponent();
         }
-
-        private void NewProject_Click(object sender, EventArgs e)
-        {
-        }
     }
 }

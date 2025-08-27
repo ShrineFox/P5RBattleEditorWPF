@@ -55,7 +55,7 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <GroupBox Header="_Selected Unit" Grid.Column="0" Margin="5,5,5,5">
-                                        <ComboBox Name="_Units" Height="20" VerticalAlignment="Top"></ComboBox>
+                                        <ComboBox Name="comboBox_Units" Height="20" VerticalAlignment="Top"></ComboBox>
                                     </GroupBox>
                                 </Grid>
                             </Grid>
