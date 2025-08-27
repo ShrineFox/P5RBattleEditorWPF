@@ -24,6 +24,16 @@ namespace P5RBattleEditorWPF
             public List<Affinity> Affinities { get; set; } = new List<Affinity>(); // segment 1
             public VoiceData VoiceData { get; set; } = new VoiceData(); // segment 3
             public VisualData VisualData { get; set; } = new VisualData(); // segment 4
+
+            public override string ToString()
+            {
+                string newValue = $"[{this.Id}] {this.ShadowName} ({this.PersonaName})";
+
+                if (!string.IsNullOrEmpty(this.Comment))
+                    newValue += $" // {this.Comment}";
+
+                return newValue.Replace("Not Used", "");
+            }
         }
 
         public class PersonaUnit

@@ -8,7 +8,7 @@ namespace P5RBattleEditorWPF
 {
     public partial class MainWindow : System.Windows.Window
     {
-        public static void SetupFormControls()
+        public void SetupFormControls()
         {
             ApplyUnitNames();
             UpdateUnitListComboBox();

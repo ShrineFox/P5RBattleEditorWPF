@@ -8,14 +8,14 @@ namespace P5RBattleEditorWPF
 {
     public partial class MainWindow : System.Windows.Window
     {
-        public static void ApplyUnitNames()
+        public void ApplyUnitNames()
         {
             GetPersonaUnitNames();
             GetEnemyUnitNames();
         }
 
         public static List<string> EnemyUnitNames = new List<string>();
-        private static void GetEnemyUnitNames()
+        private void GetEnemyUnitNames()
         {
             EnemyUnitNames.Clear();
             var enemiesSectionID = Array.IndexOf(TblNamesR, "Enemies");
@@ -24,7 +24,7 @@ namespace P5RBattleEditorWPF
         }
 
         public static List<string> PersonaUnitNames = new List<string>();
-        private static void GetPersonaUnitNames()
+        private void GetPersonaUnitNames()
         {
             PersonaUnitNames.Clear();
             var personaSectionID = Array.IndexOf(TblNamesR, "Personas");
@@ -32,14 +32,11 @@ namespace P5RBattleEditorWPF
                 PersonaUnitNames.Add(entry.Name);
         }
 
-        private static void UpdateUnitListComboBox()
+        private void UpdateUnitListComboBox()
         {
             if (project.UnitTblData.EnemyUnits != null && project.UnitTblData.EnemyUnits.Count > 0)
             {
-                //bindingSource_UnitList.DataSource = project.UnitTblData.EnemyUnits;
-                //comboBox_Units.DataSource = bindingSource_UnitList;
-                //comboBox_Units.FormattingEnabled = true;
-                //comboBox_Units.Format += UnitListFormat;
+                comboBox_Units.ItemsSource = project.UnitTblData.EnemyUnits;
             }
         }
     }
