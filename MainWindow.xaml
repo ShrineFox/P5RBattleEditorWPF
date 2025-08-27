@@ -33,7 +33,7 @@
         <DockPanel>
             
             <!--Menustrip-->
-            <Menu DockPanel.Dock="Top" Background="#FF262626" Foreground="White">
+            <Menu DockPanel.Dock="Top" Background="#2C0000" Foreground="White">
                 <MenuItem Header="File" Margin="5">
                     <MenuItem.Icon>
                         <Image Source="/Dependencies/page.png" Width="16" Height="16"/>
