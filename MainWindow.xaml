@@ -42,20 +42,42 @@
             <Grid>
                 <TabControl Margin="2,2,2,2" BorderThickness="0.3,0.3,0.3,0.3" Background="Transparent">
                     <TabItem Header="Units">
+                        <!--UNIT Tab-->
                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                            <Grid Height="1500">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                </Grid.RowDefinitions>
+                            <Grid Height="150" VerticalAlignment="Top">
                                 <Grid Grid.Row="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" MinWidth="75" />
-                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" MinWidth="75" />
                                     </Grid.ColumnDefinitions>
-                                    <GroupBox Header="_Selected Unit" Grid.Column="0" Margin="5,5,5,5">
-                                        <ComboBox Name="comboBox_Units" Height="20" VerticalAlignment="Top"></ComboBox>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" MinHeight="75" />
+                                        <RowDefinition Height="*" MinHeight="75" />
+                                    </Grid.RowDefinitions>
+                                    <!--UNIT Selection-->
+                                    <GroupBox Header="_Selected Unit" Grid.Column="0">
+                                        <ComboBox Margin="5,5,5,5" Name="comboBox_Units" SelectionChanged="UnitTab_SelectedUnitChanged"
+                                                  Height="20" VerticalAlignment="Top"></ComboBox>
+                                    </GroupBox>
+                                    <GroupBox Header="_Unit Search" Grid.Column="1">
+                                        <TextBox Margin="5,5,5,5" Name="textBox_UnitSearch" Height="20" VerticalAlignment="Top"></TextBox>
+                                    </GroupBox>
+                                    <!--UNIT Identity-->
+                                    <GroupBox Header="_Identity" Grid.Column="0" Grid.Row="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" MinWidth="35" />
+                                                <ColumnDefinition Width="*" MinWidth="35" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" MinHeight="35" />
+                                                <RowDefinition Height="*" MinHeight="35" />
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Column="0" Grid.Row="0">Arcana: </Label>
+                                            <ComboBox Grid.Column="1" Grid.Row="0" Margin="5,5,5,5" Name="comboBox_Arcana" Height="20" VerticalAlignment="Top"></ComboBox>
+
+                                        </Grid>
+                                        
                                     </GroupBox>
                                 </Grid>
                             </Grid>

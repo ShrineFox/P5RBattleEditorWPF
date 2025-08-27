@@ -20,6 +20,9 @@ namespace P5RBattleEditorWPF
         public MainWindow()
         {
             InitializeComponent();
+#if DEBUG
+            FileMenu_LoadDefaultProject();
+#endif
         }
     }
 }

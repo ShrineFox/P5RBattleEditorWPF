@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace P5RBattleEditorWPF
 {
@@ -20,6 +21,8 @@ namespace P5RBattleEditorWPF
 
             // Apply unit names to comboBox
             comboBox_Units.ItemsSource = project.UnitTblData.EnemyUnits;
+            // Apply misc names
+            comboBox_Arcana.ItemsSource = Enum.GetValues(typeof(ArcanaName)).Cast<ArcanaName>();
         }
 
         private void UnitTab_ApplyEnemyUnitNames()
@@ -34,6 +37,17 @@ namespace P5RBattleEditorWPF
             var personaSectionID = Array.IndexOf(TblNamesR, "Personas");
             for (int i = 0; i < project.NameTblData[personaSectionID].TblEntries.Count; i++)
                 project.UnitTblData.EnemyUnits[i].PersonaName = project.NameTblData[personaSectionID].TblEntries[i].Name.Copy();
+        }
+
+        private void UnitTab_SelectedUnitChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UnitTab_UpdateUnitControls();
+        }
+
+        private void UnitTab_UpdateUnitControls()
+        {
+            // Unit Arcana
+            comboBox_Arcana.SelectedIndex = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Arcana;
         }
     }
 }
