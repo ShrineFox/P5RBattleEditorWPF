@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P5RBattleEditorWPF", "P5RBattleEditorWPF.csproj", "{DBFF597A-CADA-4D32-88A7-D8DB57A8DAB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amicitia.IO", "..\..\tge-was-taken\Amicitia.io\src\Amicitia.IO\Amicitia.IO.csproj", "{8696B628-9801-8C90-CAA3-EAA8ADE2CDF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShrineFox.IO", "..\ShrineFox.IO\ShrineFox.IO.csproj", "{7640412A-7372-4925-B20C-0178D8818A8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{DBFF597A-CADA-4D32-88A7-D8DB57A8DAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBFF597A-CADA-4D32-88A7-D8DB57A8DAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBFF597A-CADA-4D32-88A7-D8DB57A8DAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8696B628-9801-8C90-CAA3-EAA8ADE2CDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8696B628-9801-8C90-CAA3-EAA8ADE2CDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8696B628-9801-8C90-CAA3-EAA8ADE2CDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8696B628-9801-8C90-CAA3-EAA8ADE2CDF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

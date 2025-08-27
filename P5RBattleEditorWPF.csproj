@@ -25,6 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\tge-was-taken\Amicitia.io\src\Amicitia.IO\Amicitia.IO.csproj" />
+    <ProjectReference Include="..\ShrineFox.IO\ShrineFox.IO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Dependencies\add.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

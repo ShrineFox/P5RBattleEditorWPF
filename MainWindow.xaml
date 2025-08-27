@@ -50,7 +50,13 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid Grid.Row="0">
-
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" MinWidth="75" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <GroupBox Header="_Selected Unit" Grid.Column="0" Margin="5,5,5,5">
+                                        <ComboBox Name="_Units" Height="20" VerticalAlignment="Top"></ComboBox>
+                                    </GroupBox>
                                 </Grid>
                             </Grid>
                         </ScrollViewer>
