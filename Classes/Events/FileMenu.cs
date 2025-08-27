@@ -13,8 +13,11 @@ namespace P5RBattleEditorWPF
     {
         public void NewProject_Click(object sender, EventArgs e)
         {
+            // Load project from default JSON
             project = JsonConvert.DeserializeObject<Project>(File.ReadAllText("./Dependencies/Json/DataTablesP5R.json"));
-            SetupFormControls();
+
+            // Set up form controls
+            UnitTab_ApplyNames();
         }
     }
 }
