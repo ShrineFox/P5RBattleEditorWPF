@@ -8,19 +8,6 @@
         mc:Ignorable="d"
         Title="P5R Battle Editor" Height="450" Width="800" BorderBrush="#FFFFDD93" Foreground="#FFFFDD93">
     <Window.Resources>
-        <!-- DECLARING MERGED DICTIONARY -->
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source='Styles/ButtonCustomStyle.xaml' />
-                <ResourceDictionary Source='Styles/ComboBoxCustomStyle.xaml' />
-                <ResourceDictionary Source='Styles/DataGridCustomStyle.xaml' />
-                <ResourceDictionary Source='Styles/GroupBoxCustomStyle.xaml' />
-                <ResourceDictionary Source='Styles/TabControlCustomStyle.xaml' />
-                <ResourceDictionary Source='Styles/MenuItemCustomStyle.xaml' />
-                <ResourceDictionary Source='Styles/RichTextBoxCustomStyle.xaml' />
-                <ResourceDictionary Source='Styles/TextBoxCustomStyle.xaml' />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
     </Window.Resources>
 
     <Window.Background>
@@ -53,10 +40,20 @@
 
             <!--Form Contents-->
             <Grid>
-                <TabControl Margin="2,2,2,2" BorderThickness="0.3,0.3,0.3,0.3">
-                    <TabItem Header="Units" >
-                        <Grid>
-                        </Grid>
+                <TabControl Margin="2,2,2,2" BorderThickness="0.3,0.3,0.3,0.3" Background="Transparent">
+                    <TabItem Header="Units">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                            <Grid Height="1500">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
                     </TabItem>
                     <TabItem Header="Encounters" >
                         <Grid>
@@ -68,6 +65,10 @@
                     </TabItem>
                     <TabItem Header="Skills" >
                         <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="109*"/>
+                                <ColumnDefinition Width="683*"/>
+                            </Grid.ColumnDefinitions>
                         </Grid>
                     </TabItem>
                 </TabControl>
