@@ -15,6 +15,7 @@
                 <ResourceDictionary Source='Styles/ComboBoxCustomStyle.xaml' />
                 <ResourceDictionary Source='Styles/DataGridCustomStyle.xaml' />
                 <ResourceDictionary Source='Styles/GroupBoxCustomStyle.xaml' />
+                <ResourceDictionary Source='Styles/TabControlCustomStyle.xaml' />
                 <ResourceDictionary Source='Styles/MenuItemCustomStyle.xaml' />
                 <ResourceDictionary Source='Styles/RichTextBoxCustomStyle.xaml' />
                 <ResourceDictionary Source='Styles/TextBoxCustomStyle.xaml' />
@@ -28,10 +29,14 @@
             <GradientStop Color="#FF2C0000" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-    
+
     <Grid>
-        <DockPanel>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="339*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="2">
+
             <!--Menustrip-->
             <Menu DockPanel.Dock="Top" Background="#2C0000" Foreground="White">
                 <MenuItem Header="File" Margin="5">
@@ -45,9 +50,27 @@
                     </MenuItem>
                 </MenuItem>
             </Menu>
-            
+
             <!--Form Contents-->
             <Grid>
+                <TabControl Margin="2,2,2,2" BorderThickness="0.3,0.3,0.3,0.3">
+                    <TabItem Header="Units" >
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Encounters" >
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Personas" >
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Skills" >
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
             </Grid>
         </DockPanel>
     </Grid>
