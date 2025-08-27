@@ -3,10 +3,52 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:P5RBattleEditorWPF"
+        xmlns:local="clr-namespace:P5RBattleEditorWPF" 
+        xmlns:control="clr-namespace:P5RBattleEditorWPF.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="P5R Battle Editor" Height="450" Width="800" BorderBrush="#FFFFDD93" Foreground="#FFFFDD93">
+    <Window.Resources>
+        <!-- DECLARING MERGED DICTIONARY -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source='Styles/ButtonCustomStyle.xaml' />
+                <ResourceDictionary Source='Styles/ComboBoxCustomStyle.xaml' />
+                <ResourceDictionary Source='Styles/DataGridCustomStyle.xaml' />
+                <ResourceDictionary Source='Styles/GroupBoxCustomStyle.xaml' />
+                <ResourceDictionary Source='Styles/MenuItemCustomStyle.xaml' />
+                <ResourceDictionary Source='Styles/RichTextBoxCustomStyle.xaml' />
+                <ResourceDictionary Source='Styles/TextBoxCustomStyle.xaml' />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF000000"/>
+            <GradientStop Color="#FF2C0000" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <Grid>
+        <DockPanel>
+            
+            <!--Menustrip-->
+            <Menu DockPanel.Dock="Top" Background="#FF262626" Foreground="White">
+                <MenuItem Header="File" Margin="5">
+                    <MenuItem.Icon>
+                        <Image Source="/Dependencies/page.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="New Project" Click="NewProject_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Dependencies/asterisk_yellow.png" Width="16" Height="16"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            
+            <!--Form Contents-->
+            <Grid>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>
