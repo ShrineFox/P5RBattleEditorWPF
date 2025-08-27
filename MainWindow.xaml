@@ -48,7 +48,7 @@
                             <Grid VerticalAlignment="Top">
                                 <Grid Grid.Row="0">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" MinWidth="75" />
+                                        <ColumnDefinition Width="*" MinWidth="375" />
                                         <ColumnDefinition Width="*" MinWidth="75" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
@@ -102,19 +102,102 @@
                                                 <ColumnDefinition Width="*" MinWidth="30" />
                                                 <ColumnDefinition Width="*" MinWidth="30" />
                                                 <ColumnDefinition Width="*" MinWidth="30" />
+                                                <ColumnDefinition Width="*" MinWidth="30" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*" MinHeight="30" />
                                                 <RowDefinition Height="*" MinHeight="30" />
                                             </Grid.RowDefinitions>
+                                            <!--UNIT EXP-->
                                             <DockPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
                                                 <Label HorizontalAlignment="Right">EXP:</Label>
-                                                <!--UNIT EXP-->
                                                 <cntrl:NumericUpDown Name="NumUpDwn_UnitEXP"
 			                                        DisplayLength="6" IsDisplayLengthFixed="True"
 			                                        IsMouseDragEnabled="True" IsReadOnly="False"
-			                                        IsUpdateValueWhenLostFocus="True" MaxValue="0"  
-			                                        MinValue="999999" StepSize="1"  Value="0" />
+			                                        IsUpdateValueWhenLostFocus="True" MaxValue="999999"  
+			                                        MinValue="0" StepSize="1"  Value="0" ValueChanged="UnitStatValue_Changed" />
+                                            </DockPanel>
+                                            <!--UNIT Money-->
+                                            <DockPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">Money:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitMoney"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="999999"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                            <!--UNIT Level-->
+                                            <DockPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">Level:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitLevel"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                            <!--UNIT HP-->
+                                            <DockPanel Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">HP:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitHP"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                            <!--UNIT HP-->
+                                            <DockPanel Grid.Column="4" Grid.Row="0" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">SP:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitSP"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+
+                                            <!--UNIT Strength-->
+                                            <DockPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">Strength:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitStrength"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                            <!--UNIT Magic-->
+                                            <DockPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">Magic:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitMagic"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                            <!--UNIT Endurance-->
+                                            <DockPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">Endurance:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitEndurance"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                            <!--UNIT Agility-->
+                                            <DockPanel Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">Agility:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitAgility"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                            <!--UNIT Luck-->
+                                            <DockPanel Grid.Column="4" Grid.Row="1" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">Luck:</Label>
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitLuck"
+                                                    DisplayLength="6" IsDisplayLengthFixed="True"
+                                                    IsMouseDragEnabled="True" IsReadOnly="False"
+                                                    IsUpdateValueWhenLostFocus="True" MaxValue="255"  
+                                                    MinValue="0" StepSize="1"  Value="0" />
                                             </DockPanel>
                                         </Grid>
                                     </GroupBox>

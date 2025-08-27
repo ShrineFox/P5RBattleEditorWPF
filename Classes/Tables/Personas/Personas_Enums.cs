@@ -36,6 +36,7 @@ namespace P5RBattleEditorWPF
 
         enum ArcanaNames
         {
+            None = 0,
             Fool = 1,
             Magician = 2,
             HighPriestess = 3,

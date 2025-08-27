@@ -1,4 +1,5 @@
-﻿using ShrineFox.IO;
+﻿using NumericUpDownLib;
+using ShrineFox.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace P5RBattleEditorWPF
             // Apply unit names to comboBox
             comboBox_Units.ItemsSource = project.UnitTblData.EnemyUnits;
             // Apply misc names
-            comboBox_Arcana.ItemsSource = Enum.GetValues(typeof(ArcanaName)).Cast<ArcanaName>();
+            comboBox_Arcana.ItemsSource = Enum.GetValues(typeof(ArcanaNames)).Cast<ArcanaNames>();
         }
 
         private void UnitTab_ApplyEnemyUnitNames()
@@ -104,6 +105,47 @@ namespace P5RBattleEditorWPF
             ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Arcana = Convert.ToByte(cmbBox.SelectedIndex);
         }
 
+        private void UnitStatValue_Changed(object sender, EventArgs e)
+        {
+            if (isUpdating)
+                return;
+
+            var numUpDwn = sender as NumericUpDown;
+            switch (numUpDwn.Name)
+            {
+                case "NumUpDwn_UnitEXP":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.EXPReward = (ushort)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitMoney":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.MoneyReward = (ushort)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitLevel":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Level = (byte)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitHP":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.HP = (ushort)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitSP":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.SP = (ushort)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitStrength":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Strength = (byte)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitMagic":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Magic = (byte)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitEndurance":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Endurance = (byte)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitAgility":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Agility = (byte)numUpDwn.Value;
+                    break;
+                case "NumUpDwn_UnitLuck":
+                    ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Luck = (byte)numUpDwn.Value;
+                    break;
+            }
+        }
+
         private void UnitTab_UpdateUnitControls()
         {
             // Unit Name
@@ -118,6 +160,15 @@ namespace P5RBattleEditorWPF
 
             // Unit Stats
             NumUpDwn_UnitEXP.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.EXPReward;
+            NumUpDwn_UnitMoney.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.MoneyReward;
+            NumUpDwn_UnitLevel.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Level;
+            NumUpDwn_UnitHP.Value = (int)((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.HP;
+            NumUpDwn_UnitSP.Value = (int)((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.SP;
+            NumUpDwn_UnitStrength.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Strength;
+            NumUpDwn_UnitMagic.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Magic;
+            NumUpDwn_UnitEndurance.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Endurance;
+            NumUpDwn_UnitAgility.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Agility;
+            NumUpDwn_UnitLuck.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Stats.Luck;
         }
     }
 }
