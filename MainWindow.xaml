@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P5RBattleEditorWPF" 
         xmlns:control="clr-namespace:P5RBattleEditorWPF.Controls"
+        xmlns:cntrl="clr-namespace:NumericUpDownLib;assembly=NumericUpDownLib"
         mc:Ignorable="d"
         Title="P5R Battle Editor" Height="450" Width="800" BorderBrush="#FFFFDD93" Foreground="#FFFFDD93">
     <Window.Resources>
@@ -44,14 +45,14 @@
                     <TabItem Header="Units">
                         <!--UNIT Tab-->
                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                            <Grid Height="150" VerticalAlignment="Top">
+                            <Grid VerticalAlignment="Top">
                                 <Grid Grid.Row="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" MinWidth="75" />
                                         <ColumnDefinition Width="*" MinWidth="75" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" MinHeight="75" />
+                                        <RowDefinition Height="*" MinHeight="30" />
                                         <RowDefinition Height="*" MinHeight="75" />
                                     </Grid.RowDefinitions>
                                     <!--UNIT Selection-->
@@ -66,18 +67,56 @@
                                     <GroupBox Header="_Identity" Grid.Column="0" Grid.Row="1">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" MinWidth="35" />
-                                                <ColumnDefinition Width="*" MinWidth="35" />
+                                                <ColumnDefinition Width="*" MinWidth="30" />
+                                                <ColumnDefinition Width="*" MinWidth="30" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" MinHeight="35" />
-                                                <RowDefinition Height="*" MinHeight="35" />
+                                                <RowDefinition Height="*" MinHeight="30" />
+                                                <RowDefinition Height="*" MinHeight="30" />
+                                                <RowDefinition Height="*" MinHeight="30" />
+                                                <RowDefinition Height="*" MinHeight="30" />
                                             </Grid.RowDefinitions>
-                                            <Label Grid.Column="0" Grid.Row="0">Arcana: </Label>
-                                            <ComboBox Grid.Column="1" Grid.Row="0" Margin="5,5,5,5" Name="comboBox_Arcana" Height="20" VerticalAlignment="Top"></ComboBox>
-
+                                            <Label Grid.Column="0" Grid.Row="0">Persona Name:</Label>
+                                            <TextBox Grid.Column="1" Grid.Row="0" Name="txt_PersonaName" 
+                                                TextChanged="UnitTab_PersonaNameChanged" LostFocus="UnitTab_ControlLostFocus"
+                                                Margin="5,5,5,5" Height="20" VerticalAlignment="Top"></TextBox>
+                                            <Label Grid.Column="0" Grid.Row="1">Shadow Name:</Label>
+                                            <TextBox Grid.Column="1" Grid.Row="1" Name="txt_ShadowName" 
+                                                TextChanged="UnitTab_ShadowNameChanged" LostFocus="UnitTab_ControlLostFocus"
+                                                Margin="5,5,5,5" Height="20" VerticalAlignment="Top"></TextBox>
+                                            <Label Grid.Column="0" Grid.Row="2">Arcana:</Label>
+                                            <ComboBox Grid.Column="1" Grid.Row="2" Name="comboBox_Arcana" 
+                                                      SelectionChanged="UnitTab_ArcanaChanged"
+                                                      Margin="5,5,5,5" Height="20" VerticalAlignment="Top"></ComboBox>
+                                            <Label Grid.Column="0" Grid.Row="3">Notes:</Label>
+                                            <TextBox Grid.Column="1" Grid.Row="3" Name="txt_UnitNotes" 
+                                                     TextChanged="UnitTab_NotesChanged"
+                                                     Margin="5,5,5,5" Height="20" VerticalAlignment="Top"></TextBox>
                                         </Grid>
-                                        
+                                    </GroupBox>
+                                    <!--UNIT Stats-->
+                                    <GroupBox Header="_Stats" Grid.Column="1" Grid.Row="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" MinWidth="30" />
+                                                <ColumnDefinition Width="*" MinWidth="30" />
+                                                <ColumnDefinition Width="*" MinWidth="30" />
+                                                <ColumnDefinition Width="*" MinWidth="30" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" MinHeight="30" />
+                                                <RowDefinition Height="*" MinHeight="30" />
+                                            </Grid.RowDefinitions>
+                                            <DockPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
+                                                <Label HorizontalAlignment="Right">EXP:</Label>
+                                                <!--UNIT EXP-->
+                                                <cntrl:NumericUpDown Name="NumUpDwn_UnitEXP"
+			                                        DisplayLength="6" IsDisplayLengthFixed="True"
+			                                        IsMouseDragEnabled="True" IsReadOnly="False"
+			                                        IsUpdateValueWhenLostFocus="True" MaxValue="0"  
+			                                        MinValue="999999" StepSize="1"  Value="0" />
+                                            </DockPanel>
+                                        </Grid>
                                     </GroupBox>
                                 </Grid>
                             </Grid>

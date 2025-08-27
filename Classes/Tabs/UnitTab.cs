@@ -10,6 +10,8 @@ namespace P5RBattleEditorWPF
 {
     public partial class MainWindow : System.Windows.Window
     {
+        public bool valueChanged = false;
+        public bool isUpdating = false;
         public void UnitTab_ApplyNames()
         {
             if (string.IsNullOrEmpty(project.UnitTblData.EnemyUnits[1].PersonaName))
@@ -41,13 +43,81 @@ namespace P5RBattleEditorWPF
 
         private void UnitTab_SelectedUnitChanged(object sender, SelectionChangedEventArgs e)
         {
+            isUpdating = true;
             UnitTab_UpdateUnitControls();
+            isUpdating = false;
+        }
+
+        private void UnitTab_PersonaNameChanged(object sender, TextChangedEventArgs e)
+        {
+            var txtBox = sender as TextBox;
+            if (isUpdating)
+                return;
+
+            valueChanged = true;
+
+            ((EnemyUnit)comboBox_Units.SelectedItem).PersonaName = txtBox.Text;
+        }
+
+        private void UnitTab_ShadowNameChanged(object sender, TextChangedEventArgs e)
+        {
+            var txtBox = sender as TextBox;
+            if (isUpdating)
+                return;
+
+            valueChanged = true;
+
+            ((EnemyUnit)comboBox_Units.SelectedItem).ShadowName = txtBox.Text;
+        }
+
+        private void UnitTab_NotesChanged(object sender, TextChangedEventArgs e)
+        {
+            if (isUpdating)
+                return;
+
+            var txtBox = sender as TextBox;
+
+            ((EnemyUnit)comboBox_Units.SelectedItem).Comment = txtBox.Text;
+        }
+
+        private void UnitTab_ControlLostFocus(object sender, EventArgs e)
+        {
+            if (valueChanged)
+            {
+                valueChanged = false;
+                UnitTab_RefreshUnitComboBox();
+            }
+        }
+
+        private void UnitTab_RefreshUnitComboBox()
+        {
+            comboBox_Units.Items.Refresh();
+        }
+
+        private void UnitTab_ArcanaChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isUpdating)
+                return;
+
+            ComboBox cmbBox = sender as ComboBox;
+
+            ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Arcana = Convert.ToByte(cmbBox.SelectedIndex);
         }
 
         private void UnitTab_UpdateUnitControls()
         {
+            // Unit Name
+            txt_PersonaName.Text = ((EnemyUnit)comboBox_Units.SelectedItem).PersonaName;
+            txt_ShadowName.Text = ((EnemyUnit)comboBox_Units.SelectedItem).ShadowName;
+
             // Unit Arcana
             comboBox_Arcana.SelectedIndex = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.Arcana;
+
+            // Notes
+            txt_UnitNotes.Text = ((EnemyUnit)comboBox_Units.SelectedItem).Comment;
+
+            // Unit Stats
+            NumUpDwn_UnitEXP.Value = ((EnemyUnit)comboBox_Units.SelectedItem).EnemyStats.EXPReward;
         }
     }
 }
